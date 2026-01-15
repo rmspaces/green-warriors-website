@@ -4,8 +4,9 @@ import { Card } from '@/app/components/ui/card';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
 import { Textarea } from '@/app/components/ui/textarea';
-import { Heart, DollarSign, Users, Building } from 'lucide-react';
+import { Heart, DollarSign, Users, Building, ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
+import { PayPalButton } from '@/app/components/PayPalButton';
 
 export function DonateSection() {
   const [amount, setAmount] = useState('');
@@ -13,6 +14,7 @@ export function DonateSection() {
   const [donorName, setDonorName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [showPayPal, setShowPayPal] = useState(false);
 
   const suggestedAmounts = [
     { value: '5000', label: '₱5,000', description: 'Training supplies' },
@@ -30,17 +32,26 @@ export function DonateSection() {
       return;
     }
 
-    // This is a prototype - in production, this would integrate with a payment gateway
-    toast.success('Thank you for your interest! This is a prototype. Payment gateway integration coming soon.');
-    
+    // Show PayPal buttons
+    setShowPayPal(true);
+  };
+
+  const handlePaymentSuccess = () => {
     // Reset form
     setAmount('');
     setCustomAmount('');
     setDonorName('');
     setEmail('');
     setMessage('');
+    setShowPayPal(false);
   };
 
+  const handleBackToForm = () => {
+    setShowPayPal(false);
+  };
+
+  const finalAmount = customAmount || amount;
+  
   return (
     <section id="donate" className="py-16 md:py-24 bg-gradient-to-br from-[#6B7A2F] via-[#5A6727] to-[#4A5420] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,98 +71,134 @@ export function DonateSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Donation Form */}
           <Card className="p-8 md:p-10 bg-white text-gray-900">
-            <h3 className="text-2xl font-bold mb-6">Make Your Donation</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Amount Selection */}
-              <div>
-                <Label className="text-lg mb-4 block">Select Amount</Label>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  {suggestedAmounts.map((suggested) => (
-                    <button
-                      key={suggested.value}
-                      type="button"
-                      onClick={() => {
-                        setAmount(suggested.value);
-                        setCustomAmount('');
-                      }}
-                      className={`p-4 rounded-lg border-2 transition-all ${
-                        amount === suggested.value && !customAmount
-                          ? 'border-[#6B7A2F] bg-[#F5F7ED]'
-                          : 'border-gray-200 hover:border-[#A8B869]'
-                      }`}
-                    >
-                      <p className="text-2xl font-bold text-[#6B7A2F]">{suggested.label}</p>
-                      <p className="text-sm text-gray-600">{suggested.description}</p>
-                    </button>
-                  ))}
-                </div>
-                <div>
-                  <Label htmlFor="customAmount">Or enter custom amount</Label>
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            {!showPayPal ? (
+              <>
+                <h3 className="text-2xl font-bold mb-6">Make Your Donation</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Amount Selection */}
+                  <div>
+                    <Label className="text-lg mb-4 block">Select Amount</Label>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      {suggestedAmounts.map((suggested) => (
+                        <button
+                          key={suggested.value}
+                          type="button"
+                          onClick={() => {
+                            setAmount(suggested.value);
+                            setCustomAmount('');
+                          }}
+                          className={`p-4 rounded-lg border-2 transition-all ${
+                            amount === suggested.value && !customAmount
+                              ? 'border-[#6B7A2F] bg-[#F5F7ED]'
+                              : 'border-gray-200 hover:border-[#A8B869]'
+                          }`}
+                        >
+                          <p className="text-2xl font-bold text-[#6B7A2F]">{suggested.label}</p>
+                          <p className="text-sm text-gray-600">{suggested.description}</p>
+                        </button>
+                      ))}
+                    </div>
+                    <div>
+                      <Label htmlFor="customAmount">Or enter custom amount</Label>
+                      <div className="relative">
+                        <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                        <Input
+                          id="customAmount"
+                          type="number"
+                          placeholder="Enter amount"
+                          value={customAmount}
+                          onChange={(e) => {
+                            setCustomAmount(e.target.value);
+                            setAmount('');
+                          }}
+                          className="pl-10"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Donor Information */}
+                  <div>
+                    <Label htmlFor="donorName">Full Name *</Label>
                     <Input
-                      id="customAmount"
-                      type="number"
-                      placeholder="Enter amount"
-                      value={customAmount}
-                      onChange={(e) => {
-                        setCustomAmount(e.target.value);
-                        setAmount('');
-                      }}
-                      className="pl-10"
+                      id="donorName"
+                      type="text"
+                      placeholder="Your name"
+                      value={donorName}
+                      onChange={(e) => setDonorName(e.target.value)}
+                      required
                     />
                   </div>
+
+                  <div>
+                    <Label htmlFor="email">Email Address *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message">Message (Optional)</Label>
+                    <Textarea
+                      id="message"
+                      placeholder="Share a message of support..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      rows={4}
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-[#6B7A2F] hover:bg-[#5A6727] text-white py-6 text-lg"
+                  >
+                    <Heart className="mr-2" size={20} />
+                    Continue to Payment
+                  </Button>
+
+                  <p className="text-sm text-gray-500 text-center">
+                    Secure PayPal payment processing
+                  </p>
+                </form>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={handleBackToForm}
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#6B7A2F] mb-6 transition-colors"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back to form</span>
+                </button>
+                <h3 className="text-2xl font-bold mb-2">Complete Your Donation</h3>
+                <div className="bg-[#F5F7ED] border border-[#6B7A2F] rounded-lg p-6 mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-gray-700">Donation Amount:</span>
+                    <span className="text-3xl font-bold text-[#6B7A2F]">₱{parseFloat(finalAmount).toLocaleString()}</span>
+                  </div>
+                  <div className="text-sm text-gray-600 border-t border-gray-300 pt-2 mt-2">
+                    <p><strong>Donor:</strong> {donorName}</p>
+                    <p><strong>Email:</strong> {email}</p>
+                    {message && <p className="mt-2"><strong>Message:</strong> {message}</p>}
+                  </div>
                 </div>
-              </div>
-
-              {/* Donor Information */}
-              <div>
-                <Label htmlFor="donorName">Full Name *</Label>
-                <Input
-                  id="donorName"
-                  type="text"
-                  placeholder="Your name"
-                  value={donorName}
-                  onChange={(e) => setDonorName(e.target.value)}
-                  required
+                <p className="text-sm text-gray-600 mb-4">
+                  Click the PayPal button below to securely complete your donation:
+                </p>
+                <PayPalButton
+                  amount={finalAmount}
+                  donorName={donorName}
+                  email={email}
+                  message={message}
+                  onSuccess={handlePaymentSuccess}
                 />
-              </div>
-
-              <div>
-                <Label htmlFor="email">Email Address *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="message">Message (Optional)</Label>
-                <Textarea
-                  id="message"
-                  placeholder="Share a message of support..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={4}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-[#6B7A2F] hover:bg-[#5A6727] text-white py-6 text-lg"
-              >
-                <Heart className="mr-2" size={20} />
-                Complete Donation
-              </Button>
-
-              <p className="text-sm text-gray-500 text-center">
-                Secure payment processing • Tax-deductible donation
-              </p>
-            </form>
+              </>
+            )}
           </Card>
 
           {/* Impact Info */}
