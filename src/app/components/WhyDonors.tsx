@@ -42,7 +42,7 @@ export function WhyDonors() {
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             Why Donors Partner With Us
           </h2>
-          <div className="w-24 h-1 bg-emerald-700 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-[#6B7A2F] mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Donors choose the Green Warriors Program because it delivers real, measurable impact.
           </p>
@@ -53,8 +53,8 @@ export function WhyDonors() {
             const Icon = reason.icon;
             return (
               <Card key={index} className="p-8 hover:shadow-xl transition-all hover:-translate-y-2">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mb-6">
-                  <Icon className="text-emerald-700" size={28} />
+                <div className="w-16 h-16 rounded-full bg-[#E8EDCF] flex items-center justify-center mb-6">
+                  <Icon className="text-[#6B7A2F]" size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{reason.title}</h3>
                 <p className="text-gray-600">{reason.description}</p>
@@ -70,11 +70,11 @@ export function WhyDonors() {
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mt-8">
               <div className="bg-white/10 rounded-lg p-6">
-                <p className="text-4xl font-bold text-emerald-400 mb-2">100%</p>
+                <p className="text-4xl font-bold text-[#A8B869] mb-2">100%</p>
                 <p className="text-lg">Employment Rate for Graduates</p>
               </div>
               <div className="bg-white/10 rounded-lg p-6">
-                <p className="text-4xl font-bold text-emerald-400 mb-2">6 mos</p>
+                <p className="text-4xl font-bold text-[#A8B869] mb-2">6 mos</p>
                 <p className="text-lg">From Unemployment to Career</p>
               </div>
             </div>

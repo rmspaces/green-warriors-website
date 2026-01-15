@@ -1,6 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/app/components/ui/button';
+import logoImage from 'figma:asset/ba098326f8ed7604a293a5075f59e3e8f67a72d8.png';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,12 +20,14 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-full flex items-center justify-center">
-                <span className="text-white text-xl font-bold">ESF</span>
-              </div>
+              <img 
+                src={logoImage} 
+                alt="Eco Sustainability Foundation" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h1 className="font-bold text-gray-900">Eco Sustainability Foundation</h1>
-                <p className="text-sm text-emerald-700">Green Warriors Program</p>
+                <p className="text-sm text-[#6B7A2F]">Green Warriors Program</p>
               </div>
             </div>
           </div>
@@ -33,31 +36,31 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-6">
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-emerald-700 transition-colors"
+              className="text-gray-700 hover:text-[#6B7A2F] transition-colors"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('program')}
-              className="text-gray-700 hover:text-emerald-700 transition-colors"
+              className="text-gray-700 hover:text-[#6B7A2F] transition-colors"
             >
               Program
             </button>
             <button
               onClick={() => scrollToSection('impact')}
-              className="text-gray-700 hover:text-emerald-700 transition-colors"
+              className="text-gray-700 hover:text-[#6B7A2F] transition-colors"
             >
               Impact
             </button>
             <button
               onClick={() => scrollToSection('donate')}
-              className="text-gray-700 hover:text-emerald-700 transition-colors"
+              className="text-gray-700 hover:text-[#6B7A2F] transition-colors"
             >
               Partner With Us
             </button>
             <Button
               onClick={() => scrollToSection('donate')}
-              className="bg-emerald-700 hover:bg-emerald-800 text-white"
+              className="bg-[#6B7A2F] hover:bg-[#5A6727] text-white"
             >
               Donate Now
             </Button>
@@ -77,31 +80,31 @@ export function Header() {
           <nav className="md:hidden py-4 flex flex-col gap-3 border-t border-gray-200">
             <button
               onClick={() => scrollToSection('about')}
-              className="text-left text-gray-700 hover:text-emerald-700 transition-colors py-2"
+              className="text-left text-gray-700 hover:text-[#6B7A2F] transition-colors py-2"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('program')}
-              className="text-left text-gray-700 hover:text-emerald-700 transition-colors py-2"
+              className="text-left text-gray-700 hover:text-[#6B7A2F] transition-colors py-2"
             >
               Program
             </button>
             <button
               onClick={() => scrollToSection('impact')}
-              className="text-left text-gray-700 hover:text-emerald-700 transition-colors py-2"
+              className="text-left text-gray-700 hover:text-[#6B7A2F] transition-colors py-2"
             >
               Impact
             </button>
             <button
               onClick={() => scrollToSection('donate')}
-              className="text-left text-gray-700 hover:text-emerald-700 transition-colors py-2"
+              className="text-left text-gray-700 hover:text-[#6B7A2F] transition-colors py-2"
             >
               Partner With Us
             </button>
             <Button
               onClick={() => scrollToSection('donate')}
-              className="bg-emerald-700 hover:bg-emerald-800 text-white w-full"
+              className="bg-[#6B7A2F] hover:bg-[#5A6727] text-white w-full"
             >
               Donate Now
             </Button>

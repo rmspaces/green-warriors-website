@@ -18,7 +18,7 @@ export function ProblemSolution() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-[#F5F7ED]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Problem */}
@@ -45,25 +45,25 @@ export function ProblemSolution() {
             <p className="text-lg text-gray-700 mb-4">
               Yet the hospitality and sustainability sectors urgently need skilled, reliable, values-driven workers.
             </p>
-            <div className="bg-emerald-50 p-4 rounded-lg">
-              <p className="font-bold text-emerald-800">
+            <div className="bg-[#E8EDCF] p-4 rounded-lg">
+              <p className="font-bold text-[#5A6727]">
                 The Green Warriors Program bridges this gap.
               </p>
             </div>
           </Card>
 
           {/* Solution */}
-          <Card className="p-8 md:p-10 border-t-4 border-emerald-500">
+          <Card className="p-8 md:p-10 border-t-4 border-[#6B7A2F]">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
-                <Target className="text-emerald-700" size={24} />
+              <div className="w-12 h-12 rounded-full bg-[#E8EDCF] flex items-center justify-center">
+                <Target className="text-[#6B7A2F]" size={24} />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Our Solution
               </h2>
             </div>
             <p className="text-lg text-gray-700 mb-6">
-              We provide a <span className="font-bold text-emerald-700">6-month immersive training program</span> covering comprehensive hospitality service standards and sustainability practices.
+              We provide a <span className="font-bold text-[#6B7A2F]">6-month immersive training program</span> covering comprehensive hospitality service standards and sustainability practices.
             </p>
             <p className="text-lg font-semibold text-gray-900 mb-4">
               Participants receive:
@@ -71,12 +71,12 @@ export function ProblemSolution() {
             <ul className="space-y-3 mb-6">
               {solutions.map((solution, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                  <CheckCircle className="text-[#6B7A2F] flex-shrink-0 mt-1" size={20} />
                   <span className="text-gray-700">{solution}</span>
                 </li>
               ))}
             </ul>
-            <div className="bg-gradient-to-br from-emerald-700 to-emerald-900 p-4 rounded-lg text-white">
+            <div className="bg-gradient-to-br from-[#6B7A2F] to-[#4A5420] p-4 rounded-lg text-white">
               <p className="font-bold">
                 Graduates are then endorsed for employment with EcoHotels Inc., our Foundation's main donor and partner enterprise.
               </p>

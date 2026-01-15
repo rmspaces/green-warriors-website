@@ -1,4 +1,5 @@
 import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import logoImage from 'figma:asset/ba098326f8ed7604a293a5075f59e3e8f67a72d8.png';
 
 export function Footer() {
   return (
@@ -8,12 +9,14 @@ export function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">ESF</span>
-              </div>
+              <img 
+                src={logoImage} 
+                alt="Eco Sustainability Foundation" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h3 className="font-bold">Eco Sustainability Foundation</h3>
-                <p className="text-sm text-emerald-400">Green Warriors Program</p>
+                <p className="text-sm text-[#A8B869]">Green Warriors Program</p>
               </div>
             </div>
             <p className="text-gray-400 mb-4">
@@ -26,21 +29,21 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Contact Us</h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <Mail className="text-emerald-400 flex-shrink-0 mt-1" size={20} />
+                <Mail className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
                   <p className="text-gray-400">info@ecosustainabilityfoundation.org</p>
                   <p className="text-sm text-gray-500">For inquiries and partnerships</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Phone className="text-emerald-400 flex-shrink-0 mt-1" size={20} />
+                <Phone className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
                   <p className="text-gray-400">+63 XXX XXX XXXX</p>
                   <p className="text-sm text-gray-500">Update in Footer.tsx</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="text-emerald-400 flex-shrink-0 mt-1" size={20} />
+                <MapPin className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
                   <p className="text-gray-400">Philippines</p>
                 </div>
@@ -54,7 +57,7 @@ export function Footer() {
             <div className="space-y-4">
               <a
                 href="#"
-                className="flex items-center gap-3 text-gray-400 hover:text-emerald-400 transition-colors"
+                className="flex items-center gap-3 text-gray-400 hover:text-[#A8B869] transition-colors"
               >
                 <Facebook size={20} />
                 <span>Follow us on Facebook</span>
@@ -67,7 +70,7 @@ export function Footer() {
                       const element = document.getElementById('about');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="block text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="block text-gray-400 hover:text-[#A8B869] transition-colors"
                   >
                     About the Program
                   </button>
@@ -76,7 +79,7 @@ export function Footer() {
                       const element = document.getElementById('program');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="block text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="block text-gray-400 hover:text-[#A8B869] transition-colors"
                   >
                     Program Details
                   </button>
@@ -85,7 +88,7 @@ export function Footer() {
                       const element = document.getElementById('impact');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="block text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="block text-gray-400 hover:text-[#A8B869] transition-colors"
                   >
                     Our Impact
                   </button>
@@ -94,7 +97,7 @@ export function Footer() {
                       const element = document.getElementById('donate');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="block text-gray-400 hover:text-emerald-400 transition-colors"
+                    className="block text-gray-400 hover:text-[#A8B869] transition-colors"
                   >
                     Donate
                   </button>
