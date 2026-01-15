@@ -1,5 +1,4 @@
 import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
-import logoImage from 'figma:asset/ba098326f8ed7604a293a5075f59e3e8f67a72d8.png';
 
 export function Footer() {
   return (
@@ -8,16 +7,9 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-8">
           {/* About */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img 
-                src={logoImage} 
-                alt="Eco Sustainability Foundation" 
-                className="w-12 h-12 object-contain"
-              />
-              <div>
-                <h3 className="font-bold">Eco Sustainability Foundation</h3>
-                <p className="text-sm text-[#A8B869]">Green Warriors Program</p>
-              </div>
+            <div className="mb-4">
+              <h3 className="font-bold">Eco Sustainability Foundation</h3>
+              <p className="text-sm text-[#A8B869]">Green Warriors Program</p>
             </div>
             <p className="text-gray-400 mb-4">
               Transforming lives from underserved communities into skilled hospitality and sustainability professionals.

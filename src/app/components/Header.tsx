@@ -1,7 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/app/components/ui/button';
-import logoImage from 'figma:asset/ba098326f8ed7604a293a5075f59e3e8f67a72d8.png';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,11 +19,6 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <div className="flex items-center gap-3">
-              <img 
-                src={logoImage} 
-                alt="Eco Sustainability Foundation" 
-                className="w-12 h-12 object-contain"
-              />
               <div>
                 <h1 className="font-bold text-gray-900">Eco Sustainability Foundation</h1>
                 <p className="text-sm text-[#6B7A2F]">Green Warriors Program</p>
