@@ -101,7 +101,7 @@ export function DonateSection() {
                     <div>
                       <Label htmlFor="customAmount">Or enter custom amount</Label>
                       <div className="relative">
-                        <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">₱</span>
                         <Input
                           id="customAmount"
                           type="number"
