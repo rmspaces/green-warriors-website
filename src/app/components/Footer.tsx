@@ -31,7 +31,6 @@ export function Footer() {
                 <Phone className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
                   <p className="text-gray-400">+63 961 005 9654</p>
-                  <p className="text-sm text-gray-500">Update in Footer.tsx</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
