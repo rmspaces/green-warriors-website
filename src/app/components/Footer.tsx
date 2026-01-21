@@ -23,14 +23,14 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <Mail className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
-                  <p className="text-gray-400">info@ecosustainabilityfoundation.org</p>
+                  <p className="text-gray-400">info@ecohotels.com.ph</p>
                   <p className="text-sm text-gray-500">For inquiries and partnerships</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="text-[#A8B869] flex-shrink-0 mt-1" size={20} />
                 <div>
-                  <p className="text-gray-400">+63 XXX XXX XXXX</p>
+                  <p className="text-gray-400">+63 961 005 9654</p>
                   <p className="text-sm text-gray-500">Update in Footer.tsx</p>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export function Footer() {
             <h3 className="font-bold text-lg mb-4">Connect With Us</h3>
             <div className="space-y-4">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61586482777752"
                 className="flex items-center gap-3 text-gray-400 hover:text-[#A8B869] transition-colors"
               >
                 <Facebook size={20} />
